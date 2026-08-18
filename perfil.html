@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi perfil - NEXO</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    // Esta página es privada: solo se puede ver con sesión iniciada.
+    // localStorage es una solución simple para un proyecto escolar de
+    // demostración; en una página real esta comprobación se haría
+    // validando la sesión en un servidor.
+    if (localStorage.getItem("nexoSesionIniciada") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-navegacion contenedor" aria-label="Navegación principal">
+      <a href="index.html" class="logo-nexo">NEXO</a>
+
+      <ul class="menu-principal">
+        <li><a href="index.html">Inicio</a></li>
+        <li class="enlace-invitado"><a href="amigos.html">Buscar</a></li>
+        <li class="enlace-privado"><a href="amigos.html">👥 Agregar amigos</a></li>
+        <li class="enlace-privado"><a href="chat.html">💬 Chats</a></li>
+        <li class="enlace-privado"><a href="perfil.html" class="activo">👤 Editar perfil</a></li>
+      </ul>
+
+      <ul class="botones-encabezado">
+        <li class="enlace-invitado"><a href="login.html" class="boton boton-secundario boton-pequeno">Iniciar sesión</a></li>
+        <li class="enlace-invitado"><a href="registro.html" class="boton boton-primario boton-pequeno">Crear cuenta</a></li>
+        <li class="enlace-privado"><a href="#" id="cerrar-sesion" class="boton boton-primario boton-pequeno">🚪 Cerrar sesión</a></li>
+      </ul>
+
+      <button class="boton-menu-movil" aria-label="Abrir menú">&#9776;</button>
+    </nav>
+  </header>
+
+  <main class="contenido-interno">
+    <div class="contenedor">
+      <h1>Crea tu perfil</h1>
+      <p class="subtitulo-pagina">Completa tus datos para que otros estudiantes puedan conocerte.</p>
+
+      <p class="mensaje-confirmacion" id="mensaje-exito-perfil"></p>
+      <p class="mensaje-error" id="error-perfil"></p>
+
+      <div class="contenedor-perfil">
+
+        <form id="formulario-perfil" aria-label="Formulario de perfil">
+          <div class="fila-doble">
+            <div class="campo-formulario">
+              <label for="nombre-perfil">Nombre</label>
+              <input type="text" id="nombre-perfil" name="nombre">
+            </div>
+            <div class="campo-formulario">
+              <label for="edad-perfil">Edad</label>
+              <input type="number" id="edad-perfil" name="edad" min="12" max="20">
+            </div>
+          </div>
+
+          <div class="fila-doble">
+            <div class="campo-formulario">
+              <label for="curso-perfil">Curso</label>
+              <input type="text" id="curso-perfil" name="curso" placeholder="Ej: 3° medio">
+            </div>
+            <div class="campo-formulario">
+              <label for="liceo-perfil">Liceo</label>
+              <input type="text" id="liceo-perfil" name="liceo">
+            </div>
+          </div>
+
+          <div class="campo-formulario">
+            <label for="descripcion-perfil">Descripción</label>
+            <textarea id="descripcion-perfil" name="descripcion" rows="3" placeholder="Cuenta un poco sobre ti..."></textarea>
+          </div>
+
+          <div class="campo-formulario">
+            <label for="musica-perfil">Música favorita</label>
+            <input type="text" id="musica-perfil" name="musica">
+          </div>
+
+          <div class="campo-formulario">
+            <label for="deportes-perfil">Deportes</label>
+            <input type="text" id="deportes-perfil" name="deportes">
+          </div>
+
+          <div class="campo-formulario">
+            <label for="videojuegos-perfil">Videojuegos</label>
+            <input type="text" id="videojuegos-perfil" name="videojuegos">
+          </div>
+
+          <div class="campo-formulario">
+            <label for="peliculas-perfil">Películas o series favoritas</label>
+            <input type="text" id="peliculas-perfil" name="peliculas">
+          </div>
+
+          <button type="submit" class="boton boton-primario boton-bloque">Guardar perfil</button>
+        </form>
+
+        <aside class="vista-previa-perfil" id="vista-previa-perfil" aria-label="Vista previa de tu perfil">
+          <p class="aviso-vacio">Aún no has guardado tu perfil. Complétalo para ver aquí la vista previa.</p>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="contenedor">
+      <p class="logo-nexo">NEXO</p>
+      <p>"Haz amigos en tu liceo"</p>
+      <p>&copy; 2026 NEXO. Proyecto escolar de demostración.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
